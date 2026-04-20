@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+:root {
+  --gold: #c9a84c;
+  --gold-bright: #ffd700;
+  --bg-deep: #0a0715;
+  --bg-card: #120e24;
+  --parchment: #e8d5b7;
+  --crimson: #7a1a1a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-deep);
+  color: var(--parchment);
+  font-family: 'Cinzel', serif;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(60, 20, 100, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(40, 10, 80, 0.2) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 80%, rgba(80, 30, 120, 0.1) 0%, transparent 50%);
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--gold);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  margin: 20px 0;
+}
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 600px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+}
+
+.tarot-card {
+  border: 2px solid var(--gold);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  background: var(--bg-card);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+}
+
+.tarot-card:not(.disabled):hover {
+  transform: scale(1.04) translateY(-2px);
+  box-shadow: 0 0 18px rgba(201, 168, 76, 0.55);
+}
+
+.tarot-card.selected {
+  border: 3px solid var(--gold-bright);
+  box-shadow: 0 0 28px rgba(255, 215, 0, 0.6), inset 0 0 16px rgba(255, 215, 0, 0.08);
+}
+
+.tarot-card.selected::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.tarot-card.disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.tarot-card img {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  display: block;
+}
+
+.card-label {
+  font-family: 'IM Fell English', serif;
+  font-size: 0.7rem;
+  color: var(--parchment);
+  text-align: center;
+  padding: 6px 4px;
+  background: rgba(10, 7, 21, 0.9);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+.tarot-input {
+  background: rgba(18, 14, 36, 0.8);
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+  color: var(--parchment);
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  padding: 10px 14px;
+  width: 100%;
+  transition: box-shadow 0.2s, border-color 0.2s;
+  outline: none;
+}
+.tarot-input:focus {
+  border-color: var(--gold-bright);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
+}
+.tarot-input::placeholder {
+  color: rgba(232, 213, 183, 0.4);
+}
+
+.submit-btn {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  border: 2px solid var(--gold);
+  border-radius: 6px;
+  background: transparent;
+  padding: 12px 36px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  text-transform: uppercase;
+}
+.submit-btn:hover:not(:disabled) {
+  background: var(--gold);
+  color: var(--bg-deep);
+  box-shadow: 0 0 20px rgba(201, 168, 76, 0.5);
+}
+.submit-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.success-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 7, 21, 0.93);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  gap: 20px;
+  text-align: center;
+  padding: 32px;
+}

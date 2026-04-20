@@ -1,0 +1,21 @@
+Coloca aqui las 16 imagenes de las tarjetas del tarot con los siguientes nombres:
+
+card-01.jpg  →  XIII
+card-02.jpg  →  The lover
+card-03.jpg  →  King of coins
+card-04.jpg  →  IIIV
+card-05.jpg  →  Death
+card-06.jpg  →  Kings of coins
+card-07.jpg  →  The devil
+card-08.jpg  →  VII
+card-09.jpg  →  Lovers
+card-10.jpg  →  The death
+card-11.jpg  →  VIII
+card-12.jpg  →  The demon
+card-13.jpg  →  Knight of coins
+card-14.jpg  →  The lovers
+card-15.jpg  →  King of coin
+card-16.jpg  →  Devil
+
+Formatos soportados: .jpg, .jpeg, .png, .webp
+(Si usas un formato diferente, actualiza la extension en src/data/cards.ts)
