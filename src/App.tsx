@@ -75,6 +75,8 @@ export default function App() {
       const until = Date.now() + COOLDOWN_MS
       localStorage.setItem(COOLDOWN_KEY, String(until))
       setRemaining(COOLDOWN_MS)
+      setEmail('')
+      setSelected([])
       setStatus('cooldown')
       return
     }
@@ -102,7 +104,7 @@ export default function App() {
               letterSpacing: '0.08em',
             }}
           >
-            Los arcanos necesitan descansar
+            Las cartas guardan silencio por ahora
           </h2>
           <p
             style={{
@@ -114,7 +116,7 @@ export default function App() {
               lineHeight: 1.7,
             }}
           >
-            Tu elección fue incorrecta. Las cartas requieren un tiempo de silencio antes de volver a ser consultadas. Podrás intentarlo nuevamente en:
+            La combinación que elegiste no coincide con la visión de Lia. Las energías aún están dispersas, pero no te rindas. Vuelve a concentrarte y deja que tu intuición te guíe en un nuevo intento en:
           </p>
           <div
             style={{

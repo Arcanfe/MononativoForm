@@ -5,7 +5,10 @@ const TOKEN_URL = 'https://oauth2.googleapis.com/token'
 
 async function getAccessToken(): Promise<string> {
   const email = import.meta.env.VITE_GOOGLE_SA_EMAIL as string
-  const rawKey = (import.meta.env.VITE_GOOGLE_SA_PRIVATE_KEY as string).replace(/\\n/g, '\n')
+  const rawKey = (import.meta.env.VITE_GOOGLE_SA_PRIVATE_KEY as string)
+    .replace(/^["']|["']$/g, '')
+    .replace(/\\n/g, '\n')
+    .replace(/\r/g, '')
   const privateKey = await importPKCS8(rawKey, 'RS256')
 
   const now = Math.floor(Date.now() / 1000)
