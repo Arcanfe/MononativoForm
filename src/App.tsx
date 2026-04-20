@@ -6,7 +6,7 @@ import CardGrid from './components/CardGrid'
 type Status = 'idle' | 'submitting' | 'success' | 'wrong' | 'cooldown' | 'error'
 
 const CORRECT_CARDS = new Set([1, 2, 3, 4, 5])
-const COOLDOWN_MS = 1 * 60 * 1000
+const COOLDOWN_MS = 30 * 60 * 1000
 const COOLDOWN_KEY = 'tarot_cooldown_until'
 
 function isCorrectSelection(selected: number[]): boolean {
