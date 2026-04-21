@@ -218,7 +218,7 @@ export default function App() {
               lineHeight: 1.7,
             }}
           >
-            ¿Qué sigue? No desesperes. Mantén tu bandeja de entrada protegida, pues el 22 de abril llegará a tu correo el secreto que el destino tiene guardado para ti.
+            ¿Qué sigue? No desesperes. Mantén tu bandeja de entrada protegida, pues llegará a tu correo el secreto que el destino tiene guardado para ti.
           </p>
           <div style={{ fontSize: '1.5rem', color: 'var(--gold)', marginTop: '8px' }}>
             ✦ ✦ ✦
